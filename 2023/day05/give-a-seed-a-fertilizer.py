@@ -15,24 +15,24 @@ def parse_input(filename):
 def part_one(puzzle_input):
     seeds, category_map_lists = parse_input(puzzle_input)
 
-    return min(find_mapped_location_nums(seeds, category_map_lists))
+    return min(get_mapped_location_nums(seeds, category_map_lists))
 
 
-def find_mapped_location_nums(seeds, category_map_lists):
+def get_mapped_location_nums(seeds, category_map_lists):
     location_nums = []
     for seed_num in seeds:
         previous_value = seed_num
         converted_value = seed_num
 
         for category_maps in category_map_lists:
-            converted_value = find_mapped_value(previous_value, category_maps)
+            converted_value = get_mapped_value(previous_value, category_maps)
             previous_value = converted_value
         location_nums.append(converted_value)
 
     return location_nums
 
 
-def find_mapped_value(num, category_maps):
+def get_mapped_value(num, category_maps):
     converted_num = num
     for dst, src, range_length in category_maps:
         src_start, src_end = src, src + range_length - 1
@@ -56,13 +56,13 @@ def get_location_ranges(seed_ranges, category_map_lists):
     previous_ranges = seed_ranges
     converted_ranges = seed_ranges
     for category_maps in category_map_lists:
-        converted_ranges = find_mapped_ranges(previous_ranges, category_maps)
+        converted_ranges = get_mapped_ranges(previous_ranges, category_maps)
         previous_ranges = converted_ranges
 
     return converted_ranges
 
 
-def find_mapped_ranges(ranges, category_maps):
+def get_mapped_ranges(ranges, category_maps):
     possible_ranges = []
     for start, end in ranges:
         overlap_ranges = []
