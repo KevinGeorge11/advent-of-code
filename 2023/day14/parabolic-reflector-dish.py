@@ -58,8 +58,8 @@ def find_repeated_state(platform):
 
 def run_remaining_cycles(platform, spin_num, repeat_state_spin_len):
     spins_left = 1_000_000_000 - spin_num
-    complete_spins = spins_left // repeat_state_spin_len
-    spins_left -= complete_spins * repeat_state_spin_len
+    loops_completed = spins_left // repeat_state_spin_len
+    spins_left -= loops_completed * repeat_state_spin_len
 
     while spins_left > 0:
         platform = cycle(platform)
@@ -121,6 +121,9 @@ def tilt(platform, direction):
     return new_platform
 
 
+# import pprint as
+# pp = pprint.PrettyPrint(indent=4)
+# pp.pprint(f'{}')
 def print_platform(platform):
     rows_len, cols_len = len(platform), len(platform[0])
     for r in range(rows_len):
