@@ -1,4 +1,5 @@
 def find_all_word_numbers(string):
+    # Algorithm Time Complexity: O(n * 9) = O(n)
     numbers = []
     word_numbers = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
@@ -30,13 +31,14 @@ def part_one(puzzle_input):
 
     :param puzzle_input: the puzzle input file
     :return: sum of all calibration values
-
     """
     # Solution:
     # 1. every line has a left-most and right-most digit, each is found as a char
     # 2. find all digits in each line
     # 3. the calibration value for each line is just: int(left_most + right_most)
     # 4. sum the calibration values together
+    #
+    # Algorithm Time Complexity: O(n)
 
     sum_of_values = 0
 
@@ -57,8 +59,6 @@ def part_two(puzzle_input):
     | The following is now also counted as valid “digits": "one", "two", "three", "four", "five", "six", "seven", "eight", "nine”
     |
     | What is the sum of all calibration values?
-    |
-    | Solution Algorithm Analysis: O(n^2)
 
     :param puzzle_input: the puzzle input file
     :return: sum of all calibration values
@@ -68,6 +68,8 @@ def part_two(puzzle_input):
     # 2. however we need a new function, find_all_word_numbers, to include word numbers alongside the digits found
     # 3. the calibration value for each line is still: int(left_most + right_most)
     # 4. sum the calibration values together
+    #
+    # Algorithm Time Complexity: O(n^2)
 
     sum_of_values = 0
 
